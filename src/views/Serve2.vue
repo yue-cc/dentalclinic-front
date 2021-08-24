@@ -16,7 +16,7 @@ v-container
 
 <script>
 export default {
-  name: 'Serve1',
+  name: 'Serve2',
   data () {
     return {
     }
