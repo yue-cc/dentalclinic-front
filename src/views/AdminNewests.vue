@@ -1,27 +1,29 @@
 <template lang="pug">
 #adminnewests
-  h1.text-center.mb-5 文章管理
+  h2.bigtitle.mb-5 最新消息管理
   v-dialog(v-model='dialog' persistent max-width='600px')
     template(v-slot:activator='{ on, attrs }')
       v-btn(color='primary' dark v-bind='attrs' v-on="on" block)
-        | 新增文章
+        | 新增最新消息
     v-card
       v-card-title
-        h5 新增文章至【牙齒小百科】
+        h5 新增最新消息至【首頁】
       v-card-text
         v-form.px-3
           v-text-field(
             v-model='form.name'
             :state='state.name'
-            label='文章標題'
-            prepend-icon='mdi-clock-time-four-outline'
+            label='最新消息標題'
+            :counter="20"
+            prepend-icon='mdi-format-title'
           )
-          v-textarea(
+          v-text-field(
             v-model='form.description'
-            label='文章內容'
-            prepend-icon='mdi-message-processing-outline'
+            label='副標'
+            :counter="20"
+            prepend-icon='mdi-format-list-text'
           )
-          img-inputer(v-model="form.image" theme="dark" size="large" placeholder="點擊或拖曳選擇圖片" bottom-text="點擊或拖曳以修改")
+          img-inputer.ml-8.mt-10(v-model="form.image" theme="dark" size="large" placeholder="點擊或拖曳選擇圖片" bottom-text="點擊或拖曳以修改")
       v-card-actions
         v-spacer
         v-btn(color='blue darken-1' text @click='dialog = false')
@@ -31,26 +33,26 @@
         v-btn(color='blue darken-1' text @click='submitModal')
           | Save
 
-  v-simple-table.mt-5
+  v-simple-table.mt-10
     template(v-slot:default)
-      thead
+      thead(style="background: #DEE9FC")
         tr
           th.text-left
             | 封面圖
           th.text-left
             | 最新消息標題
           th.text-left
-            | 最新消息內文
+            | 副標
           th.text-left
             | 修改
       tbody
-        tr(v-for="newest in newests" :key="newest._id")
+        tr(v-for="(newest, i) in newests" :key="newest._id")
           td
             v-img(height='50px' width='50px' :src='newest.image')
           td {{ newest.name }}
           td {{ newest.description }}
           td
-            v-btn(@click="editNewest(newest.index)") 編輯
+            v-btn(@click="editNewest(i)") 編輯
 </template>
 
 <script>
@@ -77,7 +79,9 @@ export default {
   methods: {
     editNewest (index) {
       this.form = {
-        name: '修改'
+        name: this.newests[index].name,
+        description: this.newests[index].description,
+        image: this.newests[index].image
       }
       this.dialog = true
     },

@@ -18,7 +18,7 @@ v-container#register
               v-model="form.account"
               :rules="rules.account"
               required
-              hint="帳號長度限制為 4 到 10 個字"
+              hint="帳號長度限制為 2 到 10 個字"
               outlined
             )
             v-text-field(
@@ -71,7 +71,7 @@ export default {
         account: [
           account => !!account || '請輸入密碼',
           account => (!!account && account.length <= 10) || '帳號需小於10個字元',
-          account => (!!account && account.length >= 4) || '帳號需大於4個字元'
+          account => (!!account && account.length >= 2) || '帳號需大於2個字元'
         ],
         password: [
           password => !!password || '請輸入密碼',
@@ -98,7 +98,7 @@ export default {
           title: '成功',
           text: '註冊成功'
         })
-        this.$router.push('/')
+        this.$router.push('/login')
       } catch (error) {
         this.$swal({
           icon: 'error',

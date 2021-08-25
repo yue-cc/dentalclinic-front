@@ -30,7 +30,13 @@
           td
             v-checkbox
   h2.bigtitle.mt-10.mb-5 診所時程
-  Calendar
+  div.doctor-circle1
+  span.pl-1.pr-5 黃偉豪醫生
+  div.doctor-circle2
+  span.pl-1.pr-5 蔡雅婷醫生
+  div.doctor-circle3
+  span.pl-1 陳冠庭醫生
+  Calendar.mt-5
 
 </template>
 

@@ -30,6 +30,9 @@ v-row.fill-height
     v-dialog(v-model='dialog', max-width='500')
       v-card
         v-container
+          div.doctor-circle1.mr-2
+          div.doctor-circle2.mr-2
+          div.doctor-circle3
           v-form(@submit.prevent='addEvent')
             v-text-field(v-model='name', type='text', label='時段-醫生-預約人')
             v-text-field(v-model='details', type='text', label='電話及預約項目')
@@ -41,6 +44,9 @@ v-row.fill-height
     v-dialog(v-model='dialogDate', max-width='500')
       v-card
         v-container
+          div.doctor-circle1.mr-2
+          div.doctor-circle2.mr-2
+          div.doctor-circle3
           v-form(@submit.prevent='addEvent')
             v-text-field(v-model='name', type='text', label='時段-醫生-預約人')
             v-text-field(v-model='details', type='text', label='電話及預約項目')

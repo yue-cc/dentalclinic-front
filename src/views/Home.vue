@@ -91,7 +91,7 @@ v-container(fluid).pa-0
                     div.doctor-circle1
                   td.text-center 公休
       v-col.col-12
-        v-card.mb-2.mx-auto.pa-5.rounded-lg(height="320px")
+        v-card.mb-2.mx-auto.pa-5.rounded-lg
           v-row
             v-col.col-12.col-md-6
               v-card-title
@@ -102,7 +102,7 @@ v-container(fluid).pa-0
                 h4 2.預約紀錄功能
                 p 完整記錄您曾經預約的項目，
             v-col.col-12.col-md-6
-              h1.text-center 影片預留位置
+              iframe(width="520" height="280" src="https://www.youtube.com/embed/pmGWYdtb9fE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
 
 </template>
 

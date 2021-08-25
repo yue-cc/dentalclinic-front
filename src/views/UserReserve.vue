@@ -8,10 +8,14 @@
         v-select(v-model="form.teethitems" :items="teethitems" label='預約項目' prepend-icon='mdi-hospital-box-outline')
         v-select(v-model="form.doctoritems" :items="doctoritems" label='預約醫生' prepend-icon='mdi-doctor')
         v-text-field(v-model='form.time' label='預約時間(請填入您方便的時間)' prepend-icon='mdi-clock-time-four-outline')
-        v-text-field(v-model='form.phone' label='手機號碼' prepend-icon='mdi-message-processing-outline')
+        v-text-field(v-model='form.phone' label='手機號碼' prepend-icon='mdi-phone')
+    v-card-text
+      h4.mt-5.text-center 資料送出後請您靜待診所回覆，當您接到診所通知電話後，預約方能成立
     v-card-actions
-      v-btn.mx-0.mt-3(flat='' @click="resetForm") 重置
-      v-btn.mx-0.mt-3(flat='' @click="addReserve") 確認預約
+      v-spacer
+      v-btn.mx-0.mt-3(color='blue darken-1' text @click="resetForm") 取消
+      v-btn.mx-0.mt-3(color='primary' dark @click="addReserve") 確認
+      v-spacer
 </template>
 
 <script>
@@ -50,9 +54,9 @@ export default {
         this.$swal({
           icon: 'success',
           title: '成功',
-          text: '預約傳送成功'
+          text: '預約傳送成功，請等待診所回復'
         })
-        this.$router.push('/user')
+        this.$router.push('/user/record')
       } catch (error) {
         this.$swal({
           icon: 'error',

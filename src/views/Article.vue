@@ -5,7 +5,8 @@ v-container#article
       img(:src="image" style="width: 500px")
     v-col.col-12.col-md-6
       h2.bigtitle.mb-5 {{ name }}
-      p {{ description}}
+      p {{ subtitle }}
+      p {{ description }}
 
 </template>
 
@@ -15,6 +16,7 @@ export default {
   data () {
     return {
       name: '',
+      subtitle: '',
       description: '',
       image: ''
     }
@@ -23,6 +25,7 @@ export default {
     try {
       const { data } = await this.axios.get('/articles/' + this.$route.params.id)
       this.name = data.result.name
+      this.subtitle = data.result.subtitle
       this.description = data.result.description
       this.image = `${process.env.VUE_APP_API}/files/${data.result.image}`
       document.title = `${this.name} | 佳友牙醫診所`

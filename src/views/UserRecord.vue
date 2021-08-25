@@ -1,9 +1,9 @@
 <template lang="pug">
 #userrecord
-  h2.text-center.mb-5 預約紀錄
+  h2.bigtitle.mb-5 預約紀錄
   v-simple-table
     template(v-slot:default)
-      thead
+      thead(style="background: #DEE9FC")
         tr
           th.text-left
             | 姓名

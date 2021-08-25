@@ -7,6 +7,10 @@ v-app
           v-list-item-title 線上預約
         v-list-item(v-if="user.islogin" to="/login" @click="logout")
           v-list-item-title 登出
+        v-list-item(v-if="user.islogin && !user.isAdmin" to="/user")
+          v-list-item-title 線上預約
+        v-list-item(v-if="user.islogin && user.isAdmin" to="/admin")
+          v-list-item-title 後台管理
         v-list-item(to="/aboutus")
           v-list-item-title 診所介紹
         h5.footercolor.px-2.mb-2.mt-2 服務項目
@@ -58,9 +62,9 @@ v-app
       v-card-text
         v-container
           v-row.text-left
-            v-col.col-12.col-sm-3
+            v-col.col-12.col-sm-4
               v-img(:src="require('@/assets/images/logo.png')" max-height="30" max-width="120" contain)
-            v-col.col-12.col-sm-3
+            v-col.col-12.col-sm-4
               h4.footercolor 聯絡方式
               p.mt-2.footercolor
                 | 0800-0800
@@ -78,7 +82,7 @@ v-app
                 | 14:00-18:00
                 br
                 | 19:00-21:00
-            v-col.col-12.col-sm-3
+            v-col.col-12.col-sm-1
               h4.footercolor 追蹤我們
               v-btn.mt-2(v-for='icon in icons', :key='icon' icon)
                 v-icon(size='24px' color="#012998") {{ icon }}

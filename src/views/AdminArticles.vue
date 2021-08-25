@@ -1,6 +1,6 @@
 <template lang="pug">
 #adminarticles
-  h1.text-center.mb-5 文章管理
+  h2.bigtitle.mb-5 文章管理
   v-dialog(v-model='dialog' persistent max-width='600px')
     template(v-slot:activator='{ on, attrs }')
       v-btn(color='primary' dark v-bind='attrs' v-on="on" block)
@@ -14,14 +14,21 @@
             v-model='form.name'
             :state='state.name'
             label='文章標題'
-            prepend-icon='mdi-clock-time-four-outline'
+            :counter="20"
+            prepend-icon='mdi-format-title'
+          )
+          v-text-field(
+            v-model='form.subtitle'
+            label='副標'
+            :counter="20"
+            prepend-icon='mdi-format-list-text'
           )
           v-textarea(
             v-model='form.description'
             label='文章內容'
             prepend-icon='mdi-message-processing-outline'
           )
-          img-inputer(v-model="form.image" theme="dark" size="large" placeholder="點擊或拖曳選擇圖片" bottom-text="點擊或拖曳以修改")
+          img-inputer.ml-8(v-model="form.image" theme="dark" size="large" placeholder="點擊或拖曳選擇圖片" bottom-text="點擊或拖曳以修改")
       v-card-actions
         v-spacer
         v-btn(color='blue darken-1' text @click='dialog = false')
@@ -31,16 +38,16 @@
         v-btn(color='blue darken-1' text @click='submitModal')
           | Save
 
-  v-simple-table.mt-5
+  v-simple-table.mt-10
     template(v-slot:default)
-      thead
+      thead(style="background: #DEE9FC")
         tr
           th.text-left
             | 封面圖
           th.text-left
             | 文章標題
           th.text-left
-            | 內文
+            | 文章副標
           th.text-left
             | 修改
       tbody
@@ -48,7 +55,7 @@
           td
             v-img(height='50px' width='50px' :src='article.image')
           td {{ article.name }}
-          td {{ article.description }}
+          td {{ article.subtitle }}
           td
             v-btn(@click="editArticle(i)") 編輯
 </template>
@@ -61,6 +68,7 @@ export default {
       dialog: false,
       form: {
         name: '',
+        subtitle: '',
         description: '',
         image: null,
         _id: ''
@@ -78,6 +86,7 @@ export default {
     editArticle (index) {
       this.form = {
         name: this.articles[index].name,
+        subtitle: this.articles[index].subtitle,
         description: this.articles[index].description,
         image: this.articles[index].image
       }
@@ -86,6 +95,7 @@ export default {
     resetForm (event) {
       this.form = {
         name: '',
+        subtitle: '',
         description: '',
         image: null,
         _id: ''
@@ -111,6 +121,7 @@ export default {
           })
           this.articles[this.form.index] = {
             name: this.form.name,
+            subtitle: this.form.subtitle,
             description: this.form.description,
             image: `${process.env.VUE_APP_API}/files/${data.result.image}`,
             _id: this.form._id
