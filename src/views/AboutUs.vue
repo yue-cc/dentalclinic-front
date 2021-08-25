@@ -1,8 +1,8 @@
 <template lang="pug">
 v-container(fluid).pa-0
   v-carousel(cycle hide-delimiters height="400px")
-    v-carousel-item(v-for='(carousel,i) in carousels' :key='i' :src='carousel.src')
-      v-row.title.fill-height.mt-0(align='center' justify='center')
+    v-carousel-item(v-for='(carousel,i) in carousels' :key='i' :src='carousel.src' gradient="to bottom, rgba(0,128,128,.2), rgba(50,128,128,.4)")
+      v-row.fill-height.mt-0(align='center' justify='center')
         p.carousel-title.text-center
           | 佳友牙醫診所
           br
@@ -19,7 +19,7 @@ v-container(fluid).pa-0
           br
           | 我們期望，讓不管是第一次看牙醫的兒童、或是有牙科恐懼的患者，都能更加了解牙科資訊，並放心的預約看診。
       v-col.col-12.col-md-6
-        v-img(src='../assets/images/aboutus.jpeg')
+        v-img(src='../assets/images/aboutus01.jpg')
 
   v-container.mt-16
     h2.bigtitle 醫療團隊
@@ -78,4 +78,5 @@ export default {
 <style lang="stylus">
 .carousel-title
   color white
+  font-size 20px
 </style>

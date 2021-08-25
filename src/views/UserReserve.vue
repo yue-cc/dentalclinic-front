@@ -21,13 +21,13 @@ export default {
   data () {
     return {
       form: {
-        teethitems: ['兒童牙科', '人工植牙', '齒顎矯正', '根管治療', '牙周治療'],
+        teethitems: ['兒童牙科', '人工植牙', '齒顎矯正', '根管治療', '一般牙科'],
         doctoritems: ['黃偉豪醫生', '蔡雅婷醫生', '陳冠廷醫生'],
         time: '',
         phone: ''
       },
       menu: false,
-      teethitems: ['兒童牙科', '人工植牙', '齒顎矯正', '根管治療', '牙周治療'],
+      teethitems: ['兒童牙科', '人工植牙', '齒顎矯正', '根管治療', '一般牙科'],
       doctoritems: ['黃偉豪醫生', '蔡雅婷醫生', '陳冠廷醫生']
     }
   },

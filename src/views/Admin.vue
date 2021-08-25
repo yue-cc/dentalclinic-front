@@ -24,7 +24,7 @@ export default {
     items: [
       { text: '預約管理', icon: 'mdi-calendar-star', route: '/admin/orders' },
       { text: '文章管理', icon: 'mdi-note', route: '/admin/articles' },
-      { text: '最新消息管理', icon: 'mdi-note', route: '/admin/newests' }
+      { text: '最新消息管理', icon: 'mdi-newspaper-variant', route: '/admin/newests' }
     ]
   })
 }

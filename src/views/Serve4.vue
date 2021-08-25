@@ -2,16 +2,21 @@
 v-container
   v-row
     v-co.col-12
-      v-img(src='../assets/images/aboutus.jpeg' height='300px')
+      v-img(src='../assets/images/serve4-1.jpg' height='300px')
 
-    v-col.col-12
-      h2.bigtitle 兒童牙科
-    v-col.col-6
-      p 三歲以下的小孩子所發生的嚴重蛀牙，我們常稱之為奶瓶型齲齒。最典型的型態是蛀牙發生於上顎前牙，而父母常會因為這些牙齒變黃、變黑、或是牙齒蛀斷掉了，才會發現而前來就診。
-      h4 造成奶瓶型齲齒的原因為何呢 ?
-      p 嬰兒出生後，引發齲齒的細菌會經由父母或保母的唾液，傳染到嬰幼兒的口腔中，如果，再加上一些不良的飲食習慣，例如：每次餵食的時間過長，抱著奶瓶睡覺等等，會導致嬰幼兒發生猛暴性齲齒，又稱奶瓶性齲齒。事實上並非"奶瓶"本身對牙齒有何害處，而是奶瓶內的東西會對牙齒產生傷害，牛奶、果汁或任何含糖的飲料，會使牙齒長期處於酸性的環境中，進而破壞牙齒產生蛀牙。
-      h4 如何預防奶瓶型齲齒呢 ?
-      p 每次餵食後，用乾淨的紗布清潔嬰兒牙齦上的奶渣，在他長出第一顆牙後，開始幫他刷牙，而在所有乳牙都萌出後，可以開始幫他用牙線清潔牙縫。
+    v-col.col-12.servepadding
+      h2.bigtitle.mt-10 根管治療
+      p.mt-10  &emsp; &emsp;根管治療是牙齒因為蛀牙、外傷或牙周病導致內部牙髓感染，因此需要進行牙髓組織的清創(俗稱抽神經)，擴大根管系統及完成根管充填等步驟。若牙髓組織生病而未接受根管治療，或原處置不完整則可能發生疼痛腫脹、慢性根尖區病變、蜂窩性組織炎等病灶。若牙齒無法接受根管治療或合併有其他問題(牙周狀況差，齒質不足….)經判定預後不良時，拔牙為解除問題的另一替代方法。
+      v-img(src='../assets/images/serve4-2.jpg')
+      v-row.mt-10
+        v-col
+          h3 FAQ
+          v-expansion-panels.mt-5(accordion='')
+            v-expansion-panel(v-for='(item,i) in items', :key='i')
+              v-expansion-panel-header.footercolor
+                h4(style='line-height: 30px') Q： {{ item.name }}
+              v-expansion-panel-content(style='line-height: 30px') A：{{ item.content }}
+
 </template>
 
 <script>
@@ -19,7 +24,18 @@ export default {
   name: 'Serve4',
   data () {
     return {
+      model: [],
+      items: [
+        { name: '治療後會有疼痛的情況嗎?', content: '每次根管治療過程後，牙齒有可能產生疼痛。疼痛時可先服用醫師開給您的止痛藥，若無效再與醫師聯絡。若在門診緊急治療到第一次約診前，請於上午門診期間掛號看診(一~五)。若在根管治療期間發生疼痛，請先以電話告知根管治療科醫師，我們會為您安排處理。' },
+        { name: '根管治療後的牙齒需注意什麼?', content: '因為根管治療後的牙齒多已喪失較多牙齒結構，治療完成後多須做牙套將其保護起來，少數牙齒可以直接填補即可。在根管治療完成後到牙套製作完成前請避免用該牙齒咀嚼，否則可能造成牙齒斷裂。(牙套費用請詢問醫師) ' },
+        { name: '根管治療後仍持續有腫痛狀症怎麼辦?', content: '根管治療完成後大部分臨床症狀均可改善，若病灶擴及根尖區骨質壞損則需較長追蹤期(六個月至數年)，若仍有症狀，須與醫師討論進一步評估，必要時須合併手術處理。。' }
+      ]
     }
   }
 }
 </script>
+
+<style lang="stylus">
+.servepadding
+  padding 0 100px
+</style>

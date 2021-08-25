@@ -1,5 +1,6 @@
 <template lang="pug">
 v-container
+  h2.bigtitle.mt-10.mb-5 牙齒百科
   v-row
     v-col.col-12.col-md-4(v-for="article in articles" :key="article._id")
       router-link(:to="'/article/'+article._id")

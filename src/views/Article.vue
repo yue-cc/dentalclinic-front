@@ -1,8 +1,11 @@
 <template lang="pug">
 v-container#article
-  img(:src="image" style="width: 500px")
-  h1 {{ name }}
-  p {{ description}}
+  v-row.mt-10
+    v-col.col-12.col-md-6
+      img(:src="image" style="width: 500px")
+    v-col.col-12.col-md-6
+      h2.bigtitle.mb-5 {{ name }}
+      p {{ description}}
 
 </template>
 

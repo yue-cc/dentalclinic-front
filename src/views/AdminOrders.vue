@@ -1,9 +1,9 @@
 <template lang="pug">
 #adminorders
-  h2.text-center.mb-5 預約管理
+  h2.bigtitle.mb-5 預約紀錄
   v-simple-table
     template(v-slot:default)
-      thead
+      thead(style="background: #DEE9FC")
         tr
           th.text-left
             | 姓名
@@ -29,16 +29,22 @@
           td {{ order.date }}
           td
             v-checkbox
+  h2.bigtitle.mt-10.mb-5 診所時程
+  Calendar
 
 </template>
 
 <script>
+import Calendar from '@/components/Calendar.vue'
 export default {
   name: 'AdminOrders',
   data () {
     return {
       orders: []
     }
+  },
+  components: {
+    Calendar
   },
   async mounted () {
     try {

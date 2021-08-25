@@ -1,9 +1,12 @@
 <template lang="pug">
 v-container#register
-  v-row.mt-16(align='center' justify='center')
+  v-row.mt-10(align='center' justify='center')
     v-col.col-12.col-sm-6
-      h2 會員功能介紹
-      p 線上預約
+      h2.bigtitle 會員功能介紹
+      h4.mt-5 1.線上預約功能
+      p 加入會員，即可使用線上預約功能，每次預約請留下資訊，資料送出後請您靜待診所回覆，當您接到診所通知電話後，預約方能成立。
+      h4 2.預約紀錄功能
+      p 完整記錄您曾經預約的項目，
     v-spacer
     v-col.col-12.col-sm-4.bb
       v-row

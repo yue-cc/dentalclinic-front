@@ -23,6 +23,14 @@ const routes = [
     }
   },
   {
+    path: '/newest/:id',
+    name: 'Newest',
+    component: () => import(/* webpackChunkName: "login" */ '../views/Newest.vue'),
+    meta: {
+      title: '牙齒百科 | 佳友牙醫診所'
+    }
+  },
+  {
     path: '/serve1',
     name: 'Serve1',
     component: () => import(/* webpackChunkName: "login" */ '../views/Serve1.vue'),
@@ -59,7 +67,7 @@ const routes = [
     name: 'Serve5',
     component: () => import(/* webpackChunkName: "login" */ '../views/Serve5.vue'),
     meta: {
-      title: '牙周治療 | 佳友牙醫診所'
+      title: '一般牙科 | 佳友牙醫診所'
     }
   },
   {

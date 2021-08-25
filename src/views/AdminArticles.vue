@@ -44,13 +44,13 @@
           th.text-left
             | 修改
       tbody
-        tr(v-for="article in articles" :key="article._id")
+        tr(v-for="(article, i) in articles" :key="article._id")
           td
             v-img(height='50px' width='50px' :src='article.image')
           td {{ article.name }}
           td {{ article.description }}
           td
-            v-btn(@click="editArticle(article.index)") 編輯
+            v-btn(@click="editArticle(i)") 編輯
 </template>
 
 <script>
@@ -77,7 +77,9 @@ export default {
   methods: {
     editArticle (index) {
       this.form = {
-        name: '修改'
+        name: this.articles[index].name,
+        description: this.articles[index].description,
+        image: this.articles[index].image
       }
       this.dialog = true
     },

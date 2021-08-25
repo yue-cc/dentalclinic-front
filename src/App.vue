@@ -113,7 +113,7 @@ export default {
         title: '根管治療', link: '/serve4'
       },
       {
-        title: '牙周治療', link: '/serve5'
+        title: '一般牙科', link: '/serve5'
       }
     ]
   }),
