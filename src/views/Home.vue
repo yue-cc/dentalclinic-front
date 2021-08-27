@@ -102,7 +102,8 @@ v-container(fluid).pa-0
                 h4 2.預約紀錄功能
                 p 完整記錄您曾經預約的項目，
             v-col.col-12.col-md-6
-              iframe(width="100%" height="280" src="https://www.youtube.com/embed/pmGWYdtb9fE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+              div.iframewidth
+                iframe(src="https://www.youtube.com/embed/pmGWYdtb9fE" title="YouTube video player" frameborder="0" allowfullscreen)
 
 </template>
 
@@ -165,4 +166,15 @@ export default {
   display inline-block
 p
  line-height 30px
+.iframewidth
+  position relative
+  width 100%
+  height 0
+  padding-bottom 56.25%
+.iframewidth iframe
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
 </style>
